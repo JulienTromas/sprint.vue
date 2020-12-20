@@ -4,7 +4,7 @@
     <h1>{{ title }}</h1>
     <navbar :allPhotosView="allPhotosView" />
     <div v-show="!currentView">
-      <singlePhoto :selectedPhoto="selectedPhoto"/>
+      <singlePhoto :selectedPhoto="selectedPhoto" />
     </div>
     <div v-show="currentView">
       <allPhotos
@@ -14,7 +14,6 @@
         @update-SelectedPhoto="updateSelectedPhoto"
       />
     </div>
-
   </div>
 </template>
 
@@ -41,9 +40,6 @@ export default {
     allPhotosView() {
       this.currentView = true;
     },
-    selectedPhotoCheck() {
-      console.log(this.selectedPhoto);
-    },
     updateSelectedPhoto(photo) {
       this.selectedPhoto = photo;
       this.currentView = false;
@@ -57,7 +53,6 @@ export default {
       );
       Promise.all(promiseOfKeys).then(base64String => {
         this.photos.push(base64String);
-        console.log(this.photos);
       });
     }
   },

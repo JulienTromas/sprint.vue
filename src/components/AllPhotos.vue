@@ -13,13 +13,10 @@
 <script>
 export default {
   name: "AllPhotos",
-  props: [
-    "photos",
-  ],
+  props: ["photos"],
   methods: {
     selectPhoto(photo) {
       this.$emit("update-SelectedPhoto", photo);
-      console.log(photo);
     }
   }
 };
